@@ -1,9 +1,11 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
+import { Feather } from '@expo/vector-icons'; 
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
 import { SplashScreen, Stack } from 'expo-router';
 import { useEffect } from 'react';
 import { useColorScheme } from 'react-native';
+import { CartProvider } from '../hooks/cartModule';
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -22,6 +24,7 @@ export default function RootLayout() {
   const [loaded, error] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
     ...FontAwesome.font,
+    ...Feather.font
   });
 
   // Expo Router uses Error Boundaries to catch errors in the navigation tree.
@@ -39,17 +42,24 @@ export default function RootLayout() {
     return null;
   }
 
-  return <RootLayoutNav />;
+  return (
+    <CartProvider>
+      <RootLayoutNav />
+    </CartProvider>
+    
+    );
 }
 
 function RootLayoutNav() {
   const colorScheme = useColorScheme();
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+    <ThemeProvider value={colorScheme === 'light' ? DarkTheme : DefaultTheme}>
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
+        <Stack.Screen name="productDetails" options={{ headerShown: false }} />
+        <Stack.Screen name="newArrivalProducts" options={{ headerShown: false }} />
       </Stack>
     </ThemeProvider>
   );

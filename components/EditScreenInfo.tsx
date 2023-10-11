@@ -5,11 +5,11 @@ import Colors from '../constants/Colors';
 import { ExternalLink } from './ExternalLink';
 import { MonoText } from './StyledText';
 import { Text, View } from './Themed';
-
+import tw from 'tailwind-react-native-classnames'
 
 export default function EditScreenInfo({ path }: { path: string }) {
   return (
-    <View>
+    <View style={tw`bg-red-700`}>
       <View style={styles.getStartedContainer}>
         <Text
           style={styles.getStartedText}
