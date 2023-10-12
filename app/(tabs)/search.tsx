@@ -28,7 +28,7 @@ export default function search() {
 
     const handleSearch = async()=>{
       try {
-        const response = await axios.get(`https://furnisale-backend.onrender.com/search/${searchInput}`)
+        const response = await axios.get(`https://furnisale-backend.onrender.com/api/products/search/${searchInput}`)
         setSearchResult(response.data)
       } catch (error) {
         console.log(error)

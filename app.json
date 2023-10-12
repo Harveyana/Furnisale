@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "testApp2",
-    "slug": "testApp2",
+    "name": "Furnisale",
+    "slug": "furnisale",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -22,7 +22,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.harveyana.furnisale"
     },
     "web": {
       "bundler": "metro",
@@ -34,6 +35,15 @@
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "a80b7763-2744-4cc8-b3da-68e51d29360f"
+      }
+    },
+    "owner": "harveyana"
   }
 }

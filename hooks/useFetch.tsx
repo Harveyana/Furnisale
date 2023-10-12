@@ -18,7 +18,7 @@ const useFetch = () => {
     const fetchData = async()=>{
         setLoading(true)
         try {
-            const response = await axios.get('https://furnisale-backend.onrender.com/')
+            const response = await axios.get('https://furnisale-backend.onrender.com/api/products')
             console.log(response.data)
             setData(response.data)
             setLoading(false)
